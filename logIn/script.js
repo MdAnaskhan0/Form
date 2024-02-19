@@ -1,18 +1,18 @@
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const loginBtn = document.getElementById("loginBtn");
-const result = document.getElementById("result");
 
 const checkValidity = () => {
-  const userEmail = email.value;
-  const userPassword = password.value;
-  var storedPerson = JSON.parse(localStorage.getItem("person"));
-  if (email.value !== "" && password !== "") {
-    if (
-      storedPerson &&
-      storedPerson.Email === userEmail &&
-      storedPerson.Password === userPassword
-    ) {
+  const userEmail = email.value.trim();
+  const userPassword = password.value.trim();
+  const storedPersons = JSON.parse(localStorage.getItem("persons")) || [];
+
+  if (userEmail !== "" && userPassword !== "") {
+    const storedPerson = storedPersons.find(
+      person => person.Email === userEmail && person.Password === userPassword
+    );
+
+    if (storedPerson) {
       Swal.fire({
         title: "Login Successful!",
         text: "",
@@ -27,14 +27,14 @@ const checkValidity = () => {
       }, 1000);
     } else {
       email.value = "";
-      email.setAttribute("placeholder", "Wrong email");
       password.value = "";
+      email.setAttribute("placeholder", "Wrong email");
       password.setAttribute("placeholder", "Wrong Password");
     }
   } else {
     email.value = "";
-    email.setAttribute("placeholder", "Enter your valid email");
     password.value = "";
+    email.setAttribute("placeholder", "Enter your valid email");
     password.setAttribute("placeholder", "Enter your password");
   }
 };

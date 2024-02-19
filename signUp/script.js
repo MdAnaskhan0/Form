@@ -22,7 +22,10 @@ signupBtn.addEventListener("click", () => {
     address.value !== ""
   ) {
     if (pass.value.length >= 6 && email.value.endsWith("@gmail.com")) {
-      localStorage.setItem("person", JSON.stringify(person));
+      let persons = JSON.parse(localStorage.getItem("persons")) || [];
+      persons.push(person);
+      localStorage.setItem("persons", JSON.stringify(persons));
+
       Swal.fire({
         title: "Registration Successful!",
         text: "",
@@ -62,4 +65,3 @@ signupBtn.addEventListener("click", () => {
     }
   }
 });
-
