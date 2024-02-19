@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="/signUp/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sign up</h1>
+        <div class="form">
+          <div class="name">
+            <input type="text" placeholder="First Name " id="fName" required />
+            <input type="text" placeholder="Last Name" id="lName" required/>
+          </div>
+          <input type="text" placeholder="Enter your email" id="email" required/>
+          <input type="password" id="password" placeholder="Enter password" required/>
+          <textarea id="address" cols="30" rows="5" placeholder="Enter your address" required></textarea>
+          <button id="signupBtn">Signup</button>
+          <div class="home">
+            <a href="/logIn/index.html">Already have an account&nbsp;|</a>
+            
+            <a href="/index.html">Home</a>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="/signUp/script.js"></script>
+</body>
+</html>
